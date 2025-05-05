@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>تحقق من الرقم لمرة واحدة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: red;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-left-color: #000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    #spinnerContainer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>إدخل رقم الحوالة او اسم المرسل كما هو تماما في خدمة حاسب</h1>
+    <input type="text" id="inputNumber" dir="rtl" placeholder="أدخل الرقم">
+    <button id="checkButton" onclick="checkNumber()">
+      <span id="buttonText">تحقق</span>
+      <span id="spinnerContainer"><span class="spinner"></span></span>
+    </button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    async function checkNumber() {
+      const input = document.getElementById("inputNumber").value.trim();
+      const result = document.getElementById("result");
+      const buttonText = document.getElementById("buttonText");
+      const spinnerContainer = document.getElementById("spinnerContainer");
+
+      // تحقق من الإدخال الفارغ
+      if (input === "") {
+        result.textContent = ".الرجاء إدخال الرقم أولاً";
+        result.style.color = "red";
+        return;
+      }
+
+      // إظهار الدائرة وإخفاء النص
+      buttonText.style.display = "none";
+      spinnerContainer.style.display = "inline-block";
+
+      const url = "https://script.google.com/macros/s/AKfycbzYWfj6pNgi-jMZIG71X5MG1WKz8HpHCeUqzJNpQUDs7BeVYQUmqj2IXDjR_7-STcCP/exec";
+      const formData = new FormData();
+      formData.append("number", input);
+
+      try {
+        const res = await fetch(url, {
+          method: "POST",
+          body: formData,
+        });
+
+        const text = await res.text();
+        if (text === "valid") {
+          window.location.href = "page3.html";
+        } else {
+          result.innerHTML = 'الرقم غير صحيح، <a href="page5.html" id="whyLink">لماذا؟</a>';
+          result.style.color = "red";
+        }
+      } catch (error) {
+        result.textContent = "حدث خطأ في الاتصال.";
+        result.style.color = "red";
+        console.error(error);
+      } finally {
+        // إعادة النص وإخفاء الدائرة بعد انتهاء العملية
+        buttonText.style.display = "inline";
+        spinnerContainer.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

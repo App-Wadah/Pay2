@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لماذا الرقم غير صحيح؟</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 20px;
+      direction: rtl;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    h1 {
+      color: #c0392b;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .contact img {
+      width: 28px;
+      height: 28px;
+      cursor: default;
+    }
+
+    .phone {
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .highlight {
+      background-color: #eaf2f8;
+      padding: 15px;
+      border-radius: 8px;
+      border-right: 4px solid #3498db;
+    }
+
+    .back-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+    }
+
+    .back-icon img {
+      width: 28px;
+    }
+
+    .back-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #e74c3c;
+      color: white;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .back-button:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- أيقونة العودة أعلى الصفحة -->
+    <div class="back-icon" onclick="history.back()">
+      <img src="https://img.icons8.com/ios-filled/50/000000/circled-left-2.png" alt="رجوع">
+    </div>
+
+    <h1>لماذا يظهر أن الرقم غير صحيح؟</h1>
+
+    <div class="highlight">
+      <p>
+        في بعض الأحيان، قد يكون السبب هو أن عملية الإرسال لازالت قيد التنفيذ، حيث يتم إدخال رقم الحوالة أو اسم المرسل يدويًا في قاعدة البيانات من قبل الفريق المسؤول.
+        لذلك، قد يستغرق الأمر من <strong>ساعتين إلى خمس ساعات عمل</strong> حتى يتم التحديث بشكل كامل.
+      </p>
+
+      <p>لتسريع العملية، يمكنك مراسلتنا عبر الرسائل النصية أو الواتساب على الرقم:</p>
+      <div class="contact">
+        <span class="phone">+967738182279</span>
+        <img src="https://img.icons8.com/fluency/48/000000/sms.png" alt="SMS">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+      </div>
+    </div>
+
+    <p>
+      من الأسباب الأخرى التي قد تؤدي إلى ظهور هذا التنبيه هي أن المال لم يتم استلامه بعد من قبل الجهة المستلمة. يرجى التأكد من أن الشخص المرسل قد قام فعليًا بإرسال المال بالطريقة الصحيحة ومن خلال القنوات الرسمية.
+    </p>
+
+    <p>
+      إذا كنت متأكدًا من أن العملية تمت بشكل صحيح، ولكن لازال يظهر لك أن الرقم غير صحيح، يمكنك التواصل معنا في أي وقت على الرقم:
+    </p>
+
+    <div class="contact">
+      <span class="phone">+967738182279</span>
+      <img src="https://img.icons8.com/fluency/48/000000/sms.png" alt="SMS">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+    </div>
+
+    <p>نحن هنا لخدمتك دائمًا، وسنقوم بالرد عليك ومساعدتك في أقرب وقت ممكن.</p>
+
+    <!-- زر العودة في الأسفل -->
+    <button class="back-button" onclick="history.back()">العودة</button>
+  </div>
+</body>
+</html>

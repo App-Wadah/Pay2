@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الصفحة الأولى</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Tajawal, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .java-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+            color: #333;
+        }
+
+        .buyButton {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .buyButton.green {
+            background-color: #4CAF50;
+        }
+
+        .buyButton:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <button class="buyButton">شراء</button>
+        <div class="title">لغة جافا</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java Icon" class="java-icon">
+    </div>
+    <div class="header">
+        <button class="buyButton">شراء</button>
+        <div class="title">لغة C++</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="C++ Icon" class="java-icon">
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll(".buyButton");
+
+        // تحقق من حالة التخزين المحلي
+        const unlocked = localStorage.getItem("goToPage4") === "true";
+
+        // مر على كل زر
+        buttons.forEach((button, index) => {
+            if (unlocked) {
+                button.textContent = "فتح";
+                button.classList.add("green");
+                button.onclick = function() {
+                    window.location.href = "page4.html";
+                };
+            } else {
+                // تخصيص الزر الثاني للانتقال إلى page2-1
+                if (index === 1) {
+                    button.onclick = function() {
+                        window.location.href = "page2-1.html";
+                    };
+                } else {
+                    button.onclick = function() {
+                        window.location.href = "page2.html";
+                    };
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
